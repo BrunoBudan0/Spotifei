@@ -31,7 +31,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="63" max="-2" attributes="0"/>
+                      <Component id="lblCadastro" min="-2" pref="63" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
@@ -39,7 +39,7 @@
                           <Component id="lblNome" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="txtNome" min="-2" pref="177" max="-2" attributes="0"/>
                           <Component id="lblEmail" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="txtNome1" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
+                          <Component id="txtEmail" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
                           <Component id="lblSenha" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="txtSenha" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
                       </Group>
@@ -59,7 +59,7 @@
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="25" max="-2" attributes="0"/>
+              <Component id="lblCadastro" min="-2" pref="25" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="lblNome" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -67,7 +67,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtNome1" min="-2" max="-2" attributes="0"/>
+              <Component id="txtEmail" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblSenha" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -85,7 +85,7 @@
         <Property name="text" type="java.lang.String" value="Spotifei"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblCadastro">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Cadastro"/>
@@ -109,12 +109,12 @@
         <Property name="text" type="java.lang.String" value="Email"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNome1">
+    <Component class="javax.swing.JTextField" name="txtEmail">
       <Properties>
         <Property name="text" type="java.lang.String" value="@email.com"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNome1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmailActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtSenha">
