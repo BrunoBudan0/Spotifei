@@ -2,7 +2,6 @@ package View;
 
 import control.ControlCadastro;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 
@@ -10,6 +9,38 @@ public class Cadastro extends javax.swing.JFrame {
     public Cadastro() {
         initComponents();
         c = new ControlCadastro(this);
+    }
+
+    public JButton getBtCadastro() {
+        return btCadastro;
+    }
+
+    public void setBtCadastro(JButton btCadastro) {
+        this.btCadastro = btCadastro;
+    }
+
+    public JTextField getTxtEmail() {
+        return txtEmail;
+    }
+
+    public void setTxtEmail(JTextField txtEmail) {
+        this.txtEmail = txtEmail;
+    }
+
+    public JTextField getTxtNome() {
+        return txtNome;
+    }
+
+    public void setTxtNome(JTextField txtNome) {
+        this.txtNome = txtNome;
+    }
+
+    public JTextField getTxtSenha() {
+        return txtSenha;
+    }
+
+    public void setTxtSenha(JTextField txtSenha) {
+        this.txtSenha = txtSenha;
     }
     
     
