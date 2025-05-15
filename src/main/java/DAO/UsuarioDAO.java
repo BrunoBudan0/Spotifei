@@ -13,23 +13,42 @@ public class UsuarioDAO {
         this.conn = conn;
     }
     
-    public ResultSet consultar(Usuario usuario) throws SQLException{
-        String sql = "select * from Usuario where nome_usuario = ? and senha_usuario = ?";
+    public ResultSet consultar(Usuario usuario) throws SQLException {
+        String sql = "SELECT * FROM Usuario WHERE nome_usuario = ? AND senha_usuario = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, usuario.getNomeUsuario());
         statement.setInt(2, usuario.getSenhaUsuario());
         statement.execute();
-        ResultSet resultado = statement.getResultSet();
-        return resultado;
+        return statement.getResultSet();
     }
-    public void inserir(Usuario usuario) throws SQLException{
-        String sql = "insert into Usuario (nome_usuario, email_usuario, senha_usuario) values ('"
-                      + usuario.getNomeUsuario()    + "', '"
-                      + usuario.getEmailUsuario() + "', '"
-                      + usuario.getSenhaUsuario()   + "')";
+    
+    public void inserir(Usuario usuario) throws SQLException {
+        String sql = "INSERT INTO Usuario (nome_usuario, email_usuario, senha_usuario) VALUES (?, ?, ?)";
         PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, usuario.getNomeUsuario());
+        statement.setString(2, usuario.getEmailUsuario());
+        statement.setInt(3, usuario.getSenhaUsuario());
         statement.execute();
         conn.close();
     }
-//    Colocar as demias funções de excluir e alterar
+    
+    // Métodos para implementar no futuro: excluir e alterar
+    public void excluir(int idUsuario) throws SQLException {
+        String sql = "DELETE FROM Usuario WHERE id_usuario = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, idUsuario);
+        statement.execute();
+        conn.close();
+    }
+    
+    public void alterar(Usuario usuario) throws SQLException {
+        String sql = "UPDATE Usuario SET nome_usuario = ?, email_usuario = ?, senha_usuario = ? WHERE id_usuario = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, usuario.getNomeUsuario());
+        statement.setString(2, usuario.getEmailUsuario());
+        statement.setInt(3, usuario.getSenhaUsuario());
+        statement.setInt(4, usuario.getIdUsuario());
+        statement.execute();
+        conn.close();
+    }
 }

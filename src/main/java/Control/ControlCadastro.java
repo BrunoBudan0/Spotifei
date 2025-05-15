@@ -11,6 +11,7 @@ import View.Cadastro;
 
 public class ControlCadastro {
     private Cadastro view;
+    private Usuario usuario;
     
     public ControlCadastro(Cadastro view){
         this.view = view;

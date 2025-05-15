@@ -154,7 +154,7 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroActionPerformed

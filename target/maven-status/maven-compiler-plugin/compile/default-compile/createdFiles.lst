@@ -1,0 +1,15 @@
+View\Cadastro.class
+View\Login$2.class
+View\Cadastro$3.class
+DAO\Conexao.class
+DAO\UsuarioDAO.class
+Model\Usuario.class
+View\Login$1.class
+Model\Musica.class
+View\Cadastro$2.class
+View\Login.class
+control\ControlCadastro.class
+View\Cadastro$1.class
+View\Login$3.class
+View\Login$4.class
+com\mycompany\spotifei\Main.class
