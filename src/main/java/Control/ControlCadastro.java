@@ -17,19 +17,56 @@ public class ControlCadastro {
     }
     
     public void salvarUsuario(){
-        String nome = view.getTxt_nome_cadastro().getText();
-        String email = view.getTxt_usuario_cadastro().getText();
-        int senha = view.getTxt_senha_cadastro().getint();
-        Usuario usuario = new Usuario(nome, email,senha);
+        String nome = view.getTxtNome().getText();
+        String email = view.getTxtEmail().getText();
         
+        //Obter a senha como int do JPasswordField
+        int senha;
+        try {
+            // Obtém a senha como array de caracteres
+            char[] senhaChars = view.getSenha().getPassword();
+            // Converte para String
+            String senhaStr = new String(senhaChars);
+            // Converte para inteiro
+            senha = Integer.parseInt(senhaStr);
+            // Limpa o array de caracteres da senha por segurança
+            java.util.Arrays.fill(senhaChars, '0');
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(view, 
+                "A senha deve conter apenas números!", 
+                "Erro de validação", 
+                JOptionPane.ERROR_MESSAGE);
+            return; // Sai do método se a senha não for um número válido
+        }
+        
+        Usuario usuario = new Usuario(nome, email, senha);
+        
+        // Realiza a conexão com o banco de dados e salva o usuário
         Conexao conexao = new Conexao();
         try {
             Connection conn = conexao.getConnection();
             UsuarioDAO dao = new UsuarioDAO(conn);
             dao.inserir(usuario);
-            JOptionPane.showMessageDialog(view, "Usuario Cadastrado!","Aviso", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(view, 
+                "Usuário Cadastrado!", 
+                "Aviso", 
+                JOptionPane.INFORMATION_MESSAGE);
+            
+            // Opcional: Limpar os campos após o cadastro bem-sucedido
+            limparCampos();
+            
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(view, "Usuário não cadastrado!","Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(view, 
+                "Usuário não cadastrado! Erro: " + ex.getMessage(), 
+                "Erro", 
+                JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+    // Método opcional para limpar os campos após cadastro
+    private void limparCampos() {
+        view.getTxtNome().setText("");
+        view.getTxtEmail().setText("");
+        view.getSenha().setText("");
     }
 }
