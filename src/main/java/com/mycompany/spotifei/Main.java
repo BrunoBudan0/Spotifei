@@ -6,7 +6,7 @@ import View.Login;
 
 public class Main {
     public static void main(String[] args) {
-        Cadastro lf = new Cadastro();
+        Login lf = new Login();
         lf.setVisible(true);
     }
     

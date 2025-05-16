@@ -47,9 +47,9 @@ public class ControlLogin {
                                               "Login efetuado!", 
                                               "Aviso",
                                               JOptionPane.INFORMATION_MESSAGE);
-                Usuario dadosUsu = new Usuario(res.getString("nome"), 
-                                         res.getString("usuario"), 
-                                         res.getInt("senha"));
+                Usuario dadosUsu = new Usuario(res.getString("nome_usuario"), 
+                                         res.getString("email_usuario"), 
+                                         res.getInt("senha_usuario"));
                 
                 // Como você não tem a tela AltExcFrame ainda, podemos comentar estas linhas
                 // ou substituir por uma mensagem ou outra ação temporária
