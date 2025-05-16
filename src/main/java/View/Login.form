@@ -45,7 +45,7 @@
                           <Component id="lblNome" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="txtLogin" pref="177" max="32767" attributes="0"/>
                           <Component id="jLabel1" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="txtSenha" alignment="0" max="32767" attributes="0"/>
+                          <Component id="Senha" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -78,7 +78,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtSenha" min="-2" max="-2" attributes="0"/>
+              <Component id="Senha" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btLogin" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="115" max="32767" attributes="0"/>
@@ -111,14 +111,6 @@
         <Property name="text" type="java.lang.String" value="Senha"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtSenha">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Senha"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSenhaActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="btLogin">
       <Properties>
         <Property name="text" type="java.lang.String" value="Login"/>
@@ -131,6 +123,11 @@
     <Component class="javax.swing.JLabel" name="lblLogin">
       <Properties>
         <Property name="text" type="java.lang.String" value="Login"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="Senha">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
       </Properties>
     </Component>
   </SubComponents>
