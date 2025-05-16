@@ -14,7 +14,7 @@ public class UsuarioDAO {
     }
     
     public ResultSet consultar(Usuario usuario) throws SQLException {
-        String sql = "SELECT * FROM Usuario WHERE nome_usuario = ? AND senha_usuario = ?";
+        String sql = "SELECT * FROM usuario WHERE nome_usuario = ? AND senha_usuario = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, usuario.getNomeUsuario());
         statement.setInt(2, usuario.getSenhaUsuario());
@@ -23,7 +23,7 @@ public class UsuarioDAO {
     }
     
     public void inserir(Usuario usuario) throws SQLException {
-        String sql = "INSERT INTO Usuario (nome_usuario, email_usuario, senha_usuario) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES (?, ?, ?)";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, usuario.getNomeUsuario());
         statement.setString(2, usuario.getEmailUsuario());
@@ -34,7 +34,7 @@ public class UsuarioDAO {
     
     // Métodos para implementar no futuro: excluir e alterar
     public void excluir(int idUsuario) throws SQLException {
-        String sql = "DELETE FROM Usuario WHERE id_usuario = ?";
+        String sql = "DELETE FROM usuario WHERE id_usuario = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setInt(1, idUsuario);
         statement.execute();
@@ -42,7 +42,7 @@ public class UsuarioDAO {
     }
     
     public void alterar(Usuario usuario) throws SQLException {
-        String sql = "UPDATE Usuario SET nome_usuario = ?, email_usuario = ?, senha_usuario = ? WHERE id_usuario = ?";
+        String sql = "UPDATE usuario SET nome_usuario = ?, email_usuario = ?, senha_usuario = ? WHERE id_usuario = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, usuario.getNomeUsuario());
         statement.setString(2, usuario.getEmailUsuario());

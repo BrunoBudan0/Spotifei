@@ -10,6 +10,6 @@ View\Cadastro$2.class
 View\Login.class
 control\ControlCadastro.class
 View\Cadastro$1.class
-View\Login$3.class
-View\Login$4.class
+control\TrocaDeTela.class
 com\mycompany\spotifei\Main.class
+control\ControlLogin.class
