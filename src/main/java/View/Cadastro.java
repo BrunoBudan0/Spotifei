@@ -158,7 +158,11 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroActionPerformed
-        c.salvarUsuario();
+        if(c.salvarUsuario()){
+        this.setVisible(false);
+            Login tl = new Login();
+            tl.setVisible(true);
+    }
     }//GEN-LAST:event_btCadastroActionPerformed
 
     private ControlCadastro c;

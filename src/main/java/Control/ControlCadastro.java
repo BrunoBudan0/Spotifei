@@ -17,7 +17,7 @@ public class ControlCadastro {
         this.view = view;
     }
     
-    public void salvarUsuario(){
+    public boolean salvarUsuario(){
         String nome = view.getTxtNome().getText();
         String email = view.getTxtEmail().getText();
         
@@ -37,7 +37,7 @@ public class ControlCadastro {
                 "A senha deve conter apenas números!", 
                 "Erro de validação", 
                 JOptionPane.ERROR_MESSAGE);
-            return; // Sai do método se a senha não for um número válido
+            return false; // Sai do método se a senha não for um número válido
         }
         
         Usuario usuario = new Usuario(nome, email, senha);
@@ -55,12 +55,14 @@ public class ControlCadastro {
             
             // Opcional: Limpar os campos após o cadastro bem-sucedido
             limparCampos();
+            return true;
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(view, 
                 "Usuário não cadastrado! Erro: " + ex.getMessage(), 
                 "Erro", 
                 JOptionPane.ERROR_MESSAGE);
+            return false;
         }
     }
     

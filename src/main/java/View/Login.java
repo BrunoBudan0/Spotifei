@@ -139,8 +139,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLoginActionPerformed
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
-        c.loginUsuario();
-//        this.setVisible(false);
+        if(c.loginUsuario()){
+            this.setVisible(false);
+            Home tl = new Home();
+            tl.setVisible(true);
+        }
     }//GEN-LAST:event_btLoginActionPerformed
 
 

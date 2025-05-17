@@ -18,7 +18,7 @@ public class ControlLogin {
         this.view = view;
     }
     
-    public void loginUsuario(){
+    public boolean loginUsuario(){
          // Convertendo o array de caracteres para String e depois para int
         char[] senhaChars = view.getSenha().getPassword();
         String senhaStr = new String(senhaChars);
@@ -31,7 +31,7 @@ public class ControlLogin {
                                          "Senha deve ser um número!", 
                                          "Erro de formato", 
                                          JOptionPane.ERROR_MESSAGE);
-            return; // Encerra o método se a senha não for um número
+            return false; // Encerra o método se a senha não for um número
         }
         
         Usuario usuario = new Usuario(view.getTxtLogin().getText(),senhaInt);
@@ -50,31 +50,25 @@ public class ControlLogin {
                                          res.getString("email_usuario"), 
                                          res.getInt("senha_usuario"));
                 
-                // Como você não tem a tela AltExcFrame ainda, podemos comentar estas linhas
-                // ou substituir por uma mensagem ou outra ação temporária
-                // AltExcFrame aec = new AltExcFrame(dadosUsu);
-                // aec.setVisible(true);
-                
-                // Em vez disso, podemos mostrar uma mensagem temporária:
                 JOptionPane.showMessageDialog(view, 
-                                             "Usuário autenticado: " + dadosUsu.getNomeUsuario(), 
+                                             "Bem-vindo " + dadosUsu.getNomeUsuario()+"!", 
                                              "Sucesso", 
                                              JOptionPane.INFORMATION_MESSAGE);
-                
-                // Aqui você pode adicionar qualquer lógica temporária que deseja executar 
-                // após o login bem-sucedido
-                
+                return true;
+                     
             } else{
                 JOptionPane.showMessageDialog(view, 
                                               "Login NÃO efetuado!", 
                                               "Aviso",
                                               JOptionPane.ERROR_MESSAGE);
+                return false;
             }
         } catch(SQLException e){    
             JOptionPane.showMessageDialog(view, 
                                               "Erro de conexão!", 
                                               "Aviso",
                                               JOptionPane.ERROR_MESSAGE);
+            return false;
         }
     }
 }
