@@ -18,8 +18,8 @@ public class UsuarioDAO {
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, usuario.getNomeUsuario());
         statement.setInt(2, usuario.getSenhaUsuario());
-        statement.execute();
-        return statement.getResultSet();
+        
+        return statement.executeQuery();
     }
     
     public void inserir(Usuario usuario) throws SQLException {

@@ -34,9 +34,7 @@ public class ControlLogin {
             return; // Encerra o método se a senha não for um número
         }
         
-        Usuario usuario = new Usuario(null, 
-                                view.getTxtLogin().getText(),
-                                senhaInt);
+        Usuario usuario = new Usuario(view.getTxtLogin().getText(),senhaInt);
         Conexao conexao = new Conexao();
         try{
             Connection conn = conexao.getConnection();
@@ -47,7 +45,8 @@ public class ControlLogin {
                                               "Login efetuado!", 
                                               "Aviso",
                                               JOptionPane.INFORMATION_MESSAGE);
-                Usuario dadosUsu = new Usuario(res.getString("nome_usuario"), 
+                Usuario dadosUsu = new Usuario(res.getInt("id_usuario"),
+                                         res.getString("nome_usuario"), 
                                          res.getString("email_usuario"), 
                                          res.getInt("senha_usuario"));
                 

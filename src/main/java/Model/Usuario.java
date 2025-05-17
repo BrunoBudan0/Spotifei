@@ -17,6 +17,11 @@ public class Usuario {
         this.senhaUsuario = senhaUsuario;
     }
 
+    public Usuario(String nomeUsuario, int senhaUsuario) {
+        this.nomeUsuario = nomeUsuario;
+        this.senhaUsuario = senhaUsuario;
+    }
+
     public Usuario(String nomeUsuario, String emailUsuario, int senhaUsuario) {
         this.nomeUsuario = nomeUsuario;
         this.emailUsuario = emailUsuario;
