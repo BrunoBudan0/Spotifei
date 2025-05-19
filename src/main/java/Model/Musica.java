@@ -12,6 +12,13 @@ public class Musica {
 
     public Musica() {
     }
+    
+    //Pesquisa
+    public Musica(String nomeMusic) {
+        this.nomeMusic = nomeMusic;
+    }
+    
+    
 
     public int getIdMusic() {
         return idMusic;

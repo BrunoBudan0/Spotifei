@@ -50,6 +50,8 @@ public class ControlLogin {
                                          res.getString("email_usuario"), 
                                          res.getInt("senha_usuario"));
                 
+                SessaoUsuario.setUsuarioLogado(dadosUsu);
+                
                 JOptionPane.showMessageDialog(view, 
                                              "Bem-vindo " + dadosUsu.getNomeUsuario()+"!", 
                                              "Sucesso", 
