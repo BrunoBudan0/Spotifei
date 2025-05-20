@@ -127,7 +127,10 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btPlaylistActionPerformed
 
     private void btNewPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNewPlaylistActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        NewPlaylist tl = new NewPlaylist();
+        tl.setVisible(true);
+        
     }//GEN-LAST:event_btNewPlaylistActionPerformed
 
     private void txtPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisaActionPerformed
