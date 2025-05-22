@@ -5,7 +5,12 @@
 package View;
 
 import Control.ControlHome;
+import java.awt.Container;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
 
 public class Home extends javax.swing.JFrame {
 
@@ -14,6 +19,8 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null); // Centraliza na tela
         c = new ControlHome(this);
     }
 
@@ -123,7 +130,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btMusicasCurtidasActionPerformed
 
     private void btPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPlaylistActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        Playlists2 tl = new Playlists2();
+        tl.setVisible(true);
     }//GEN-LAST:event_btPlaylistActionPerformed
 
     private void btNewPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNewPlaylistActionPerformed

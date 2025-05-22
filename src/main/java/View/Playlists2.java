@@ -1,3 +1,4 @@
+
 package View;
 
 import Control.ControlPlaylist;
@@ -9,9 +10,9 @@ import javax.swing.event.ListSelectionListener;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Playlists extends javax.swing.JPanel {
-    
-    public Playlists() {
+public class Playlists2 extends javax.swing.JFrame {
+
+    public Playlists2() {
         initComponents();
         
         modeloLista = new DefaultListModel<>();
@@ -21,12 +22,12 @@ public class Playlists extends javax.swing.JPanel {
         playlists = new ArrayList<>();
         
         // Criar controller DEPOIS de configurar a lista
-//        c = new ControlPlaylist(this);
-//        
+        c = new ControlPlaylist(this);
+        
         // Carregar playlists quando a tela for criada
         c.carregarPlaylists();
     }
-    
+
     private List<Playlist> playlists;
     private DefaultListModel<String> modeloLista; 
     @SuppressWarnings("unchecked")
@@ -37,12 +38,14 @@ public class Playlists extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         lista = new javax.swing.JList<>();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         jLabel1.setText("Playlists");
 
         jScrollPane1.setViewportView(lista);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -50,9 +53,9 @@ public class Playlists extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(121, Short.MAX_VALUE)
+                .addContainerGap(103, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -61,9 +64,12 @@ public class Playlists extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
+
     //Metodos para o controller manipular a view
     public void setPlaylists(List<Playlist> playlists){
         this.playlists = playlists;
@@ -106,6 +112,7 @@ public class Playlists extends javax.swing.JPanel {
     }
     
     private ControlPlaylist c;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

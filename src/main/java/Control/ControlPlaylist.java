@@ -7,17 +7,17 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import Model.Playlist;
 import View.NewPlaylist;
-import View.Playlists;
+import View.Playlists2;
 import java.util.List;
 
 public class ControlPlaylist {
     private NewPlaylist view;
-    private Playlists viewPlaylists;
+    private Playlists2 viewPlaylists;
     
     public ControlPlaylist(NewPlaylist view) {
         this.view = view;
     }
-    public ControlPlaylist(Playlists view) {
+    public ControlPlaylist(Playlists2 view) {
         this.viewPlaylists = view;
     }
     
@@ -62,7 +62,7 @@ public class ControlPlaylist {
             
             List<Playlist> playlists = dao.buscarPlaylists(SessaoUsuario.getUsuarioLogado().getIdUsuario());
             
-            viewPlaylists.atualizarListaPlaylists(playlists);
+            atualizarListaPlaylists(playlists);
             
             conn.close();
             
@@ -72,6 +72,22 @@ public class ControlPlaylist {
                 "Erro", 
                 JOptionPane.ERROR_MESSAGE);
         }
+    }
+     public void atualizarListaPlaylists(List<Playlist> playlists) {
+        // Atualizar a lista de playlists na view
+        viewPlaylists.setPlaylists(playlists);
+        viewPlaylists.limparLista();
+        
+        if (playlists.isEmpty()) {
+            viewPlaylists.adicionarItemLista("Nenhuma playlist encontrada");
+        } else {
+            for (Playlist playlist : playlists) {
+                viewPlaylists.adicionarItemLista(playlist.getNomePlaylist());
+            }
+        }
+        
+        // Atualizar a interface
+        viewPlaylists.atualizarInterface();
     }
     
 }
