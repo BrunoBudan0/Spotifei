@@ -7,9 +7,6 @@ import javax.swing.JTextField;
 
 public class NewPlaylist extends javax.swing.JFrame {
 
-    /**
-     * Creates new form NewPlaylist
-     */
     public NewPlaylist() {
         initComponents();
         c = new ControlPlaylist(this);

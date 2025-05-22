@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import Model.Playlist;
 import Control.SessaoUsuario;
 import Model.Usuario;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class PlaylistDAO {
     private Connection conn;
@@ -24,5 +27,25 @@ public class PlaylistDAO {
         statement.setString(3, usuarioLogado.getNomeUsuario());
         statement.execute();
         conn.close();
+    }
+     public List<Playlist> buscarPlaylists(int idUsuario) throws SQLException {
+        List<Playlist> playlists = new ArrayList<>();
+        String sql = "SELECT * FROM playlist WHERE id_usuario = ?";
+        
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, idUsuario);
+        ResultSet res = statement.executeQuery();
+        
+        while (res.next()) {
+            Playlist playlist = new Playlist();
+            playlist.setIdPlaylist(res.getInt("id_playlist")); // Assumindo que existe campo id_playlist
+            playlist.setNomePlaylist(res.getString("nome_playlist"));
+            
+               playlists.add(playlist);
+        }
+        
+        res.close();
+        statement.close();
+        return playlists;
     }
 }

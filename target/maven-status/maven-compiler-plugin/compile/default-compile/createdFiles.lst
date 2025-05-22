@@ -8,7 +8,7 @@ View\Login.class
 View\Home.class
 control\ControlCadastro.class
 control\ControlHome.class
-control\TrocaDeTela.class
+View\Login$3.class
 control\ControlPlaylist.class
 DAO\MusicaDAO.class
 View\Home$2.class
@@ -22,7 +22,9 @@ control\SessaoUsuario.class
 View\Cadastro$2.class
 Model\Playlist.class
 View\Cadastro$1.class
+View\Cadastro$4.class
 View\Home$3.class
+View\Login$4.class
 View\NewPlaylist$1.class
 View\NewPlaylist.class
 com\mycompany\spotifei\Main.class

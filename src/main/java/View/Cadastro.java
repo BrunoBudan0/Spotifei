@@ -59,6 +59,7 @@ public class Cadastro extends javax.swing.JFrame {
         lblSenha = new javax.swing.JLabel();
         btCadastro = new javax.swing.JButton();
         senha = new javax.swing.JPasswordField();
+        btLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,7 +70,6 @@ public class Cadastro extends javax.swing.JFrame {
 
         lblNome.setText("Nome");
 
-        txtNome.setText("Seu nome");
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
@@ -78,7 +78,6 @@ public class Cadastro extends javax.swing.JFrame {
 
         lblEmail.setText("Email");
 
-        txtEmail.setText("@email.com");
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
@@ -94,7 +93,12 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
-        senha.setText("jPasswordField1");
+        btLogin.setText("Login");
+        btLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,8 +122,11 @@ public class Cadastro extends javax.swing.JFrame {
                             .addComponent(lblSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(senha)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(btCadastro)))
+                        .addGap(160, 160, 160)
+                        .addComponent(btCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(btLogin)))
                 .addContainerGap(149, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -143,7 +150,9 @@ public class Cadastro extends javax.swing.JFrame {
                 .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(btCadastro)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btLogin)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -165,9 +174,16 @@ public class Cadastro extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_btCadastroActionPerformed
 
+    private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
+        this.setVisible(false);
+            Login tl = new Login();
+            tl.setVisible(true);
+    }//GEN-LAST:event_btLoginActionPerformed
+
     private ControlCadastro c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastro;
+    private javax.swing.JButton btLogin;
     private javax.swing.JLabel lblCadastro;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblNome;

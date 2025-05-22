@@ -39,30 +39,40 @@ public class ControlCadastro {
                 JOptionPane.ERROR_MESSAGE);
             return false; // Sai do método se a senha não for um número válido
         }
-        
-        Usuario usuario = new Usuario(nome, email, senha);
-        
-        // Realiza a conexão com o banco de dados e salva o usuário
-        Conexao conexao = new Conexao();
-        try {
-            Connection conn = conexao.getConnection();
-            UsuarioDAO dao = new UsuarioDAO(conn);
-            dao.inserir(usuario);
+
+        if (campoVazio(nome) || campoVazio(email)) {
             JOptionPane.showMessageDialog(view, 
-                "Usuário Cadastrado!", 
-                "Aviso", 
-                JOptionPane.INFORMATION_MESSAGE);
-            
-            // Opcional: Limpar os campos após o cadastro bem-sucedido
-            limparCampos();
-            return true;
-            
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(view, 
-                "Usuário não cadastrado! Erro: " + ex.getMessage(), 
-                "Erro", 
+                "Todos os campos precisam ser preenchidos!", 
+                "Erro de validação", 
                 JOptionPane.ERROR_MESSAGE);
             return false;
+        }
+        else{
+        
+            Usuario usuario = new Usuario(nome, email, senha);
+
+            // Realiza a conexão com o banco de dados e salva o usuário
+            Conexao conexao = new Conexao();
+            try {
+                Connection conn = conexao.getConnection();
+                UsuarioDAO dao = new UsuarioDAO(conn);
+                dao.inserir(usuario);
+                JOptionPane.showMessageDialog(view, 
+                    "Usuário Cadastrado!", 
+                    "Aviso", 
+                    JOptionPane.INFORMATION_MESSAGE);
+
+                // Opcional: Limpar os campos após o cadastro bem-sucedido
+                limparCampos();
+                return true;
+
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(view, 
+                    "Usuário não cadastrado! Erro: " + ex.getMessage(), 
+                    "Erro", 
+                    JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
         }
     }
     
@@ -72,4 +82,9 @@ public class ControlCadastro {
         view.getTxtEmail().setText("");
         view.getSenha().setText("");
     }
+    //Validação dos campos, fiz dessa forma para ficar mais facil de entender
+    private boolean campoVazio(String campo) {
+        return campo == null || campo.trim().isEmpty();
+    }
+    //Fazer uma validação de email...
 }

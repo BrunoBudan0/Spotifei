@@ -7,12 +7,18 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import Model.Playlist;
 import View.NewPlaylist;
+import View.Playlists;
+import java.util.List;
 
 public class ControlPlaylist {
     private NewPlaylist view;
+    private Playlists viewPlaylists;
     
     public ControlPlaylist(NewPlaylist view) {
         this.view = view;
+    }
+    public ControlPlaylist(Playlists view) {
+        this.viewPlaylists = view;
     }
     
     public boolean criarPlaylist() {
@@ -47,4 +53,25 @@ public class ControlPlaylist {
             return false;
         }
     }
+    // Método para carregar playlists do usuário logado
+    public void carregarPlaylists() {
+        
+        try {
+            Connection conn = new Conexao().getConnection();
+            PlaylistDAO dao = new PlaylistDAO(conn);
+            
+            List<Playlist> playlists = dao.buscarPlaylists(SessaoUsuario.getUsuarioLogado().getIdUsuario());
+            
+            viewPlaylists.atualizarListaPlaylists(playlists);
+            
+            conn.close();
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(viewPlaylists, 
+                "Erro ao carregar playlists: " + e.getMessage(), 
+                "Erro", 
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
 }
