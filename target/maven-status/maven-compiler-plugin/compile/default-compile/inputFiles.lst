@@ -1,9 +1,9 @@
 C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\com\mycompany\spotifei\Main.java
 C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\Control\ControlCadastro.java
 C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\Control\ControlLogin.java
+C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\Control\ControlMusica.java
 C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\Control\ControlPlaylist.java
 C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\Control\SessaoUsuario.java
-C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\Control\Telas.java
 C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\DAO\Conexao.java
 C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\DAO\MusicaDAO.java
 C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\DAO\PlaylistDAO.java
@@ -15,4 +15,5 @@ C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\View\Cadastro
 C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\View\Home.java
 C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\View\Login.java
 C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\View\NewPlaylist.java
+C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\View\PesquisaMusica.java
 C:\Users\bruno\OneDrive\Documentos\spotifei\Spotifei\src\main\java\View\Playlists.java

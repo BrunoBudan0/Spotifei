@@ -28,7 +28,7 @@ public class PlaylistDAO {
         statement.execute();
         conn.close();
     }
-     public List<Playlist> buscarPlaylists(int idUsuario) throws SQLException {
+    public List<Playlist> buscarPlaylists(int idUsuario) throws SQLException {
         List<Playlist> playlists = new ArrayList<>();
         String sql = "SELECT * FROM playlist WHERE id_usuario = ?";
         

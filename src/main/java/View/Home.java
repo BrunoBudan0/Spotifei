@@ -106,7 +106,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btPlaylistActionPerformed
 
     private void btPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisaActionPerformed
-        
+        this.setVisible(false);
+        PesquisaMusica tl = new PesquisaMusica();
+        tl.setVisible(true);
     }//GEN-LAST:event_btPesquisaActionPerformed
 
     

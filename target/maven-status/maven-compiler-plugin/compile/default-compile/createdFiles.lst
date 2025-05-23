@@ -1,7 +1,6 @@
 View\Cadastro$3.class
 DAO\UsuarioDAO.class
 View\NewPlaylist$2.class
-control\Telas.class
 View\Playlists$3.class
 View\Login$1.class
 Model\Musica.class
@@ -10,9 +9,12 @@ View\Home.class
 View\Playlists.class
 control\ControlCadastro.class
 View\Login$3.class
+View\PesquisaMusica$3.class
+View\PesquisaMusica.class
 control\ControlPlaylist.class
 DAO\MusicaDAO.class
 View\Home$2.class
+control\ControlMusica.class
 View\Cadastro.class
 View\Login$2.class
 DAO\PlaylistDAO.class
@@ -22,7 +24,9 @@ Model\Usuario.class
 View\Playlists$2.class
 control\SessaoUsuario.class
 View\Cadastro$2.class
+View\PesquisaMusica$1.class
 Model\Playlist.class
+View\PesquisaMusica$2.class
 View\Cadastro$1.class
 View\Cadastro$4.class
 View\Home$3.class

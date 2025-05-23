@@ -1,14 +1,14 @@
 
 package Model;
 
+import java.sql.Time;
+
 public class Musica {
     private int idMusic; 
     private String nomeMusic; 
-//    private img  foto;
-    private String generoMusic;
-//    private time duracaoMusic; 
+    private java.sql.Time duracaoMusic;
     private String descricaoMusic;
-//  resolver como colocar o artista
+    private String artistaMusic;
 
     public Musica() {
     }
@@ -18,8 +18,6 @@ public class Musica {
         this.nomeMusic = nomeMusic;
     }
     
-    
-
     public int getIdMusic() {
         return idMusic;
     }
@@ -36,13 +34,23 @@ public class Musica {
         this.nomeMusic = nomeMusic;
     }
 
-    public String getGeneroMusic() {
-        return generoMusic;
+    public Time getDuracaoMusic() {
+        return duracaoMusic;
     }
 
-    public void setGeneroMusic(String generoMusic) {
-        this.generoMusic = generoMusic;
+    public void setDuracaoMusic(Time duracaoMusic) {
+        this.duracaoMusic = duracaoMusic;
     }
+
+    public String getArtistaMusic() {
+        return artistaMusic;
+    }
+
+    public void setArtistaMusic(String artistaMusic) {
+        this.artistaMusic = artistaMusic;
+    }
+
+    
 
     public String getDescricaoMusic() {
         return descricaoMusic;
