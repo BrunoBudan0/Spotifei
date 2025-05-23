@@ -50,8 +50,6 @@ public class Musica {
         this.artistaMusic = artistaMusic;
     }
 
-    
-
     public String getDescricaoMusic() {
         return descricaoMusic;
     }

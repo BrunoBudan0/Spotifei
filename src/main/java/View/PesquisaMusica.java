@@ -3,6 +3,7 @@ package View;
 
 import Control.ControlMusica;
 import Model.Musica;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -12,6 +13,11 @@ public class PesquisaMusica extends javax.swing.JFrame {
 
     public PesquisaMusica() {
         initComponents();
+        
+        modeloLista = new DefaultListModel<>();
+        lista.setModel(modeloLista);
+        musicas = new ArrayList<>();
+        
         c = new ControlMusica(this);
         setLocationRelativeTo(null); // Centraliza na tela
     }
@@ -150,11 +156,11 @@ public class PesquisaMusica extends javax.swing.JFrame {
             lista.repaint();
         }
     }
-//    public void recarregarMusicas(){
-//        if(c != null) {
-//            c.carregarMusicas();
-//        }
-//    }
+    public void recarregarMusicas(){
+        if(c != null) {
+            c.atualizarListaMusicas(musicas);
+        }
+    }
 
     public DefaultListModel<String> getModeloLista() {
         return modeloLista;

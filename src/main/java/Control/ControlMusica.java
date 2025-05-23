@@ -44,13 +44,12 @@ public class ControlMusica {
             view.adicionarItemLista("Nenhuma musica encontrada");
         } else {
             for (Musica musica : musicas) {
-                view.adicionarItemLista(musica.getNomeMusic());
-                view.adicionarItemLista(musica.getDescricaoMusic());
-                view.adicionarItemLista(musica.getArtistaMusic());
-//                view.adicionarItemLista(musica.getDuracaoMusic());
+                String itemLista = musica.getNomeMusic() + " / " 
+                        + musica.getArtistaMusic() + " / " 
+                        + musica.getDuracaoMusic();
+                view.adicionarItemLista(itemLista);
             }
         }
-        
         // Atualizar a interface
         view.atualizarInterface();
     }
