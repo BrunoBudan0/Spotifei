@@ -48,4 +48,11 @@ public class PlaylistDAO {
         statement.close();
         return playlists;
     }
+    public void excluirPlaylist(int idPlaylist) throws SQLException {
+        String sql = "DELETE FROM playlist WHERE id_playlist = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, idPlaylist);
+        statement.execute();
+        conn.close();
+    }
 }

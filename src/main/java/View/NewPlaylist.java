@@ -10,6 +10,7 @@ public class NewPlaylist extends javax.swing.JFrame {
     public NewPlaylist() {
         initComponents();
         c = new ControlPlaylist(this);
+        setLocationRelativeTo(null); // Centraliza na tela
     }
 
     public JButton getBtCriar() {
@@ -119,7 +120,7 @@ public class NewPlaylist extends javax.swing.JFrame {
     private void btCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCriarActionPerformed
         if(c.criarPlaylist()){
             this.setVisible(false);
-            Home tl = new Home();
+            Playlists tl = new Playlists();
             tl.setVisible(true);
         }
     }//GEN-LAST:event_btCriarActionPerformed

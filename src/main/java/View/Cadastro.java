@@ -10,6 +10,7 @@ public class Cadastro extends javax.swing.JFrame {
     public Cadastro() {
         initComponents();
         c = new ControlCadastro(this);
+        setLocationRelativeTo(null); // Centraliza na tela
     }
 
     public JButton getBtCadastro() {

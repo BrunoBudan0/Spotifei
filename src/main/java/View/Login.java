@@ -10,6 +10,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         c = new ControlLogin(this);
+        setLocationRelativeTo(null); // Centraliza na tela
     }
 
     public JButton getBtLogin() {

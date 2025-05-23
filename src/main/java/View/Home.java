@@ -4,13 +4,6 @@
  */
 package View;
 
-import Control.ControlHome;
-import java.awt.Container;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-
 
 public class Home extends javax.swing.JFrame {
 
@@ -19,17 +12,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Centraliza na tela
-        c = new ControlHome(this);
-    }
-
-    public JTextField getTxtPesquisa() {
-        return txtPesquisa;
-    }
-
-    public void setTxtPesquisa(JTextField txtPesquisa) {
-        this.txtPesquisa = txtPesquisa;
     }
     
     
@@ -46,8 +29,7 @@ public class Home extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btMusicasCurtidas = new javax.swing.JButton();
         btPlaylist = new javax.swing.JButton();
-        btNewPlaylist = new javax.swing.JButton();
-        txtPesquisa = new javax.swing.JTextField();
+        btPesquisa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
@@ -71,18 +53,11 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        btNewPlaylist.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btNewPlaylist.setText("+");
-        btNewPlaylist.addActionListener(new java.awt.event.ActionListener() {
+        btPesquisa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btPesquisa.setText("🔍");
+        btPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btNewPlaylistActionPerformed(evt);
-            }
-        });
-
-        txtPesquisa.setToolTipText("");
-        txtPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPesquisaActionPerformed(evt);
+                btPesquisaActionPerformed(evt);
             }
         });
 
@@ -97,14 +72,11 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(58, 58, 58)
-                        .addComponent(btNewPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
                         .addComponent(btPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
-                        .addComponent(btMusicasCurtidas, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btMusicasCurtidas, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -112,47 +84,36 @@ public class Home extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(40, 40, 40)
-                .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addGap(93, 93, 93)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btNewPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btMusicasCurtidas, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(67, 67, 67))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btMusicasCurtidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMusicasCurtidasActionPerformed
-        // TODO add your handling code here:
+ 
     }//GEN-LAST:event_btMusicasCurtidasActionPerformed
 
     private void btPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPlaylistActionPerformed
         this.setVisible(false);
-        Playlists2 tl = new Playlists2();
+        Playlists tl = new Playlists();
         tl.setVisible(true);
     }//GEN-LAST:event_btPlaylistActionPerformed
 
-    private void btNewPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNewPlaylistActionPerformed
-        this.setVisible(false);
-        NewPlaylist tl = new NewPlaylist();
-        tl.setVisible(true);
+    private void btPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisaActionPerformed
         
-    }//GEN-LAST:event_btNewPlaylistActionPerformed
-
-    private void txtPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisaActionPerformed
-        
-    }//GEN-LAST:event_txtPesquisaActionPerformed
+    }//GEN-LAST:event_btPesquisaActionPerformed
 
     
-    private ControlHome c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btMusicasCurtidas;
-    private javax.swing.JButton btNewPlaylist;
+    private javax.swing.JButton btPesquisa;
     private javax.swing.JButton btPlaylist;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField txtPesquisa;
     // End of variables declaration//GEN-END:variables
 }

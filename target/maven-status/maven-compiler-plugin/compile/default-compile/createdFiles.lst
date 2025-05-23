@@ -2,14 +2,13 @@ View\Cadastro$3.class
 DAO\UsuarioDAO.class
 View\NewPlaylist$2.class
 control\Telas.class
-View\Home$4.class
+View\Playlists$3.class
 View\Login$1.class
 Model\Musica.class
 View\Login.class
 View\Home.class
 View\Playlists.class
 control\ControlCadastro.class
-control\ControlHome.class
 View\Login$3.class
 control\ControlPlaylist.class
 DAO\MusicaDAO.class
@@ -20,8 +19,8 @@ DAO\PlaylistDAO.class
 DAO\Conexao.class
 View\Home$1.class
 Model\Usuario.class
+View\Playlists$2.class
 control\SessaoUsuario.class
-View\Playlists2.class
 View\Cadastro$2.class
 Model\Playlist.class
 View\Cadastro$1.class
@@ -30,5 +29,6 @@ View\Home$3.class
 View\Login$4.class
 View\NewPlaylist$1.class
 View\NewPlaylist.class
+View\Playlists$1.class
 com\mycompany\spotifei\Main.class
 control\ControlLogin.class

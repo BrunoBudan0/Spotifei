@@ -1,3 +1,4 @@
+
 package View;
 
 import Control.ControlPlaylist;
@@ -9,24 +10,22 @@ import javax.swing.event.ListSelectionListener;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Playlists extends javax.swing.JPanel {
-    
+public class Playlists extends javax.swing.JFrame {
+
     public Playlists() {
         initComponents();
+        setLocationRelativeTo(null); // Centraliza na tela
         
         modeloLista = new DefaultListModel<>();
         lista.setModel(modeloLista);
         
-        // Inicializar lista de playlists
         playlists = new ArrayList<>();
         
-        // Criar controller DEPOIS de configurar a lista
-//        c = new ControlPlaylist(this);
-//        
-        // Carregar playlists quando a tela for criada
-        c.carregarPlaylists();
+        c = new ControlPlaylist(this);
+        
+        c.carregarPlaylists();//Carrega a playlist na tela
     }
-    
+
     private List<Playlist> playlists;
     private DefaultListModel<String> modeloLista; 
     @SuppressWarnings("unchecked")
@@ -36,23 +35,58 @@ public class Playlists extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lista = new javax.swing.JList<>();
+        btVoltar = new javax.swing.JButton();
+        btNewPlay = new javax.swing.JButton();
+        btExcPlay = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Playlists");
 
         jScrollPane1.setViewportView(lista);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+
+        btNewPlay.setText("Nova Playlist");
+        btNewPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNewPlayActionPerformed(evt);
+            }
+        });
+
+        btExcPlay.setText("Excluir Playlist");
+        btExcPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcPlayActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(264, 264, 264)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(121, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(103, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(107, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btNewPlay)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btExcPlay)
+                        .addGap(31, 31, 31)
+                        .addComponent(btVoltar)
+                        .addGap(22, 22, 22))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -61,10 +95,34 @@ public class Playlists extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btVoltar)
+                    .addComponent(btNewPlay)
+                    .addComponent(btExcPlay))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
-    //Metodos para o controller manipular a view
+
+    private void btNewPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNewPlayActionPerformed
+        this.setVisible(false);
+        NewPlaylist tl = new NewPlaylist();
+        tl.setVisible(true);
+    }//GEN-LAST:event_btNewPlayActionPerformed
+
+    private void btExcPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcPlayActionPerformed
+        int indice = lista.getSelectedIndex();
+        c.excluirPlaylistSelecionada(indice);
+    }//GEN-LAST:event_btExcPlayActionPerformed
+
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        this.setVisible(false);
+        Home tl = new Home();
+        tl.setVisible(true);
+    }//GEN-LAST:event_btVoltarActionPerformed
+
     public void setPlaylists(List<Playlist> playlists){
         this.playlists = playlists;
     }
@@ -107,6 +165,9 @@ public class Playlists extends javax.swing.JPanel {
     
     private ControlPlaylist c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btExcPlay;
+    private javax.swing.JButton btNewPlay;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> lista;
