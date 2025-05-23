@@ -5,7 +5,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import Control.SessaoUsuario;
 import Model.Musica;
+import Model.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,5 +48,45 @@ public class MusicaDAO {
     statement.close();
     return musicas;
 }
+    
+    public List<Musica> buscarMusicaCurtida(int idUsuario) throws SQLException {
+        List<Musica> musicas = new ArrayList<>();
+        String sql = "SELECT * FROM musicascurtidas WHERE id_usuario = ?";
+        
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, idUsuario);
+        ResultSet res = statement.executeQuery();
+        
+        while (res.next()) {
+            Musica musica = new Musica();
+            musica.setIdMusic(res.getInt("id_musica")); 
+            String sql2 = "SELECT * FROM musica WHERE id_musica = ?";
+        
+            PreparedStatement statement2 = conn.prepareStatement(sql2);
+            statement2.setInt(1, musica.getIdMusic());
+            ResultSet res2 = statement2.executeQuery();
+            while (res2.next()) {
+                musica.setNomeMusic(res2.getString("nome_musica"));
+                musica.setDuracaoMusic(res2.getTime("duracao_musica"));
+                musica.setArtistaMusic(res2.getString("nome_artista"));
+            }
+
+               musicas.add(musica);
+        }
+        
+        res.close();
+        statement.close();
+        return musicas;
+    }
+    
+    public void curtirMusicas(Musica musica) throws SQLException {
+        String sql = "INSERT INTO musicascurtidas (id_usuario, id_musica) VALUES (?, ?)";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        Usuario usuarioLogado = SessaoUsuario.getUsuarioLogado();
+        statement.setInt(1, usuarioLogado.getIdUsuario());
+        statement.setInt(2, musica.getIdMusic());
+        statement.execute();
+        conn.close();
+    }
     
 }

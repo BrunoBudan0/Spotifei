@@ -96,7 +96,9 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btMusicasCurtidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMusicasCurtidasActionPerformed
- 
+        this.setVisible(false);
+        CurtidasMusicas tl = new CurtidasMusicas();
+        tl.setVisible(true);
     }//GEN-LAST:event_btMusicasCurtidasActionPerformed
 
     private void btPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPlaylistActionPerformed

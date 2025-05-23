@@ -1,11 +1,14 @@
 View\Cadastro$3.class
+View\PesquisaMusica$4.class
 DAO\UsuarioDAO.class
 View\NewPlaylist$2.class
 View\Playlists$3.class
+View\CurtidasMusicas$1.class
 View\Login$1.class
 Model\Musica.class
 View\Login.class
 View\Home.class
+View\CurtidasMusicas$2.class
 View\Playlists.class
 control\ControlCadastro.class
 View\Login$3.class
@@ -23,9 +26,11 @@ View\Home$1.class
 Model\Usuario.class
 View\Playlists$2.class
 control\SessaoUsuario.class
+View\CurtidasMusicas.class
 View\Cadastro$2.class
 View\PesquisaMusica$1.class
 Model\Playlist.class
+View\CurtidasMusicas$3.class
 View\PesquisaMusica$2.class
 View\Cadastro$1.class
 View\Cadastro$4.class
