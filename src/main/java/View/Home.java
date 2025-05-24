@@ -37,7 +37,6 @@ public class Home extends javax.swing.JFrame {
 
         jLabel1.setText("Home");
 
-        btMusicasCurtidas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btMusicasCurtidas.setText("❤");
         btMusicasCurtidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,15 +44,14 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        btPlaylist.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btPlaylist.setText("⁂");
+        btPlaylist.setText("📁");
+        btPlaylist.setActionCommand("");
         btPlaylist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPlaylistActionPerformed(evt);
             }
         });
 
-        btPesquisa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btPesquisa.setText("🔍");
         btPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +89,8 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(btMusicasCurtidas, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(124, Short.MAX_VALUE))
         );
+
+        btPlaylist.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

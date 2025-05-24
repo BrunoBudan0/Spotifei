@@ -69,7 +69,7 @@ public class CurtidasMusicas extends javax.swing.JFrame {
                         .addGap(225, 225, 225))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(117, 117, 117)
-                .addComponent(btDescurtir, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btDescurtir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btVoltar)
                 .addGap(16, 16, 16))
