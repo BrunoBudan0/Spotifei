@@ -43,7 +43,7 @@ Remoção de músicas da lista de curtidas.
 🛠️ Estrutura do Código
 MVC (Model - View - Controller): separação clara de responsabilidades.
 
-Interface Gráfica: Desenvolvida com Swing.
+Interface Gráfica: JFrame.
 
 Banco de Dados: Integração com PostgreSQL para armazenamento persistente.
 
@@ -59,13 +59,10 @@ GUI: JFrame
 Arquitetura: MVC (Model, View, Controller)
 
 🧱 Estrutura do Projeto
-bash
-Copiar
-Editar
 /spotifei
 ├── /src
 │   ├── /model          # Classes de domínio (Usuário, Música, Playlist)
-│   ├── /view           # Telas e elementos gráficos (Swing)
+│   ├── /view           # Telas e elementos gráficos
 │   ├── /controller     # Lógica de navegação e controle
 │   └── /dao            # Acesso ao banco de dados (JDBC + PostgreSQL)
 ├── /assets             
@@ -86,7 +83,7 @@ Clone o repositório:
 bash
 Copiar
 Editar
-git clone https://github.com/seu_usuario/spotifei.git
+git clone (https://github.com/BrunoBudan0/Spotifei.git)
 cd spotifei
 Configure o banco de dados:
 
@@ -103,10 +100,6 @@ A interface gráfica foi projetada para simplicidade e usabilidade.
 
 🚀 Possíveis Melhorias Futuras
 Implementar sistema de reprodução de áudio.
-
-Adicionar suporte a avaliações e comentários de usuários.
-
-Criar versão web com JavaScript e APIs RESTful.
 
 Melhorar design da interface com bibliotecas gráficas mais modernas.
 
