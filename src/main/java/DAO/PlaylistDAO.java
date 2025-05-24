@@ -55,4 +55,14 @@ public class PlaylistDAO {
         statement.execute();
         conn.close();
     }
+    public void adicionarMusicaAPlaylist(int idPlaylist, int idMusica) throws SQLException {
+    String sql = "INSERT INTO musicasplaylists (id_playlist, id_musica) VALUES (?, ?)";
+    
+    PreparedStatement statement = conn.prepareStatement(sql);
+    statement.setInt(1, idPlaylist);
+    statement.setInt(2, idMusica);
+    
+    statement.execute();
+    statement.close();
+}
 }

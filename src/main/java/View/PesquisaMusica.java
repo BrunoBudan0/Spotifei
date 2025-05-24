@@ -83,6 +83,11 @@ public class PesquisaMusica extends javax.swing.JFrame {
         });
 
         btAddPlay.setText("Adicionar a playlist");
+        btAddPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAddPlayActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,6 +167,24 @@ public class PesquisaMusica extends javax.swing.JFrame {
         int indice = lista.getSelectedIndex();
         c.curtirMusicaSelecionada(indice);
     }//GEN-LAST:event_btCurtirActionPerformed
+
+    private void btAddPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddPlayActionPerformed
+        int indice = lista.getSelectedIndex();
+    
+    if (indice >= 0 && indice < musicas.size()) {
+        // Obter a música selecionada
+        Musica musicaSelecionada = musicas.get(indice);
+        
+        this.setVisible(false);
+        AddPlaylists addPlaylistsView = new AddPlaylists(musicaSelecionada);
+        addPlaylistsView.setVisible(true);
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this, 
+            "Selecione uma música para adicionar à playlist", 
+            "Aviso", 
+            javax.swing.JOptionPane.WARNING_MESSAGE);
+    }
+    }//GEN-LAST:event_btAddPlayActionPerformed
     
     public void setMusicas(List<Musica> musicas){
         this.musicas = musicas;

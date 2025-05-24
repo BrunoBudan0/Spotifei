@@ -79,6 +79,36 @@ public class MusicaDAO {
         return musicas;
     }
     
+    public List<Musica> buscarMusicasPlaylist(int idPlaylist) throws SQLException {
+        List<Musica> musicas = new ArrayList<>();
+        String sql = "SELECT * FROM musicasplaylists WHERE id_playlist = ?";
+        
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, idPlaylist);
+        ResultSet res = statement.executeQuery();
+        
+        while (res.next()) {
+            Musica musica = new Musica();
+            musica.setIdMusic(res.getInt("id_musica")); 
+            String sql2 = "SELECT * FROM musica WHERE id_musica = ?";
+        
+            PreparedStatement statement2 = conn.prepareStatement(sql2);
+            statement2.setInt(1, musica.getIdMusic());
+            ResultSet res2 = statement2.executeQuery();
+            while (res2.next()) {
+                musica.setNomeMusic(res2.getString("nome_musica"));
+                musica.setDuracaoMusic(res2.getTime("duracao_musica"));
+                musica.setArtistaMusic(res2.getString("nome_artista"));
+            }
+
+               musicas.add(musica);
+        }
+        
+        res.close();
+        statement.close();
+        return musicas;
+    }
+    
     public void curtirMusicas(Musica musica) throws SQLException {
         String sql = "INSERT INTO musicascurtidas (id_usuario, id_musica) VALUES (?, ?)";
         PreparedStatement statement = conn.prepareStatement(sql);
@@ -92,6 +122,14 @@ public class MusicaDAO {
         String sql = "DELETE FROM musicascurtidas WHERE id_musica = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setInt(1, idMusica);
+        statement.execute();
+        conn.close();
+    }
+    public void removerMusicaPlaylist(int idPlaylist, int idMusica ) throws SQLException {
+        String sql = "DELETE FROM musicasplaylists WHERE id_playlist = ? AND id_musica = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, idPlaylist);
+        statement.setInt(2, idMusica);
         statement.execute();
         conn.close();
     }
