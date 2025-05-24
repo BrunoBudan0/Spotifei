@@ -92,7 +92,10 @@ Crie o banco e as tabelas conforme o script SQL fornecido no projeto (ex: script
 Compile e execute o projeto na IDE de sua preferência.
 
 🔒 Regras e Considerações
+
 O login deve ser realizado com o nome de usuário e senha fornecidos no cadastro.
+
+Mudar as declarações de conexão se necessario para conectar o banco de dados.
 
 Todas as interações com músicas e playlists são persistidas no banco.
 
