@@ -13,7 +13,7 @@ import View.AddPlaylists;
 import java.util.List;
 
 public class ControlPlaylist {
-    private Object view; // View genérica
+    private Object view;
     private TipoTela tipoTela;
     
     // Constructor para NewPlaylist
@@ -31,7 +31,7 @@ public class ControlPlaylist {
     // Constructor para AddPlaylists
     public ControlPlaylist(AddPlaylists view) {
         this.view = view;
-        this.tipoTela = TipoTela.ADD; // Tipo específico para AddPlaylists
+        this.tipoTela = TipoTela.ADD; 
     }
     
     // Constructor genérico com tipo de tela

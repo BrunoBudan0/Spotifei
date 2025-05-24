@@ -34,6 +34,8 @@ public class ControlMusica {
         this.tipoTela = TipoTela.PLAYLIST_MUSICA;
     }
     
+    //Construtores especificos para cada tela para poder ajustar conforme 
+    //o necessario
     // Constructor genérico com tipo de tela
     public ControlMusica(Object view, TipoTela tipoTela) {
         this.view = view;
@@ -108,6 +110,25 @@ public class ControlMusica {
         }
     }
     
+    public void carregarMusicas() {
+        try {
+            Connection conn = new Conexao().getConnection();
+            MusicaDAO dao = new MusicaDAO(conn);
+            
+            List<Musica> musicas = dao.carregarMusica();
+            
+            atualizarListaMusicas(musicas);
+            
+            conn.close();
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog((java.awt.Component) view, 
+                "Erro ao carregar musicas: " + e.getMessage(), 
+                "Erro", 
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     // Método unificado para atualizar lista de músicas
     public void atualizarListaMusicas(List<Musica> musicas) {
         // Definir as músicas na view
@@ -131,15 +152,17 @@ public class ControlMusica {
     private String formatarItemPorTela(Musica musica) {
         switch (tipoTela) {
             case PESQUISA:
-                return musica.getNomeMusic() + " / " 
-                        + musica.getArtistaMusic() + " / " 
+                return "🎵 " + musica.getNomeMusic() + " / " 
+                        + musica.getArtistaMusic() + " / "
+                        + musica.getGeneroMusic()+ "/"
                         + musica.getDuracaoMusic();
             case CURTIDAS:
                 return "♥ " + musica.getNomeMusic() + " / " 
                         + musica.getArtistaMusic() + " / " 
-                        + musica.getDuracaoMusic();
+                        + musica.getDuracaoMusic() + "/" 
+                        + musica.getGeneroMusic();
             case PLAYLIST_MUSICA:
-                return "🎵 " + musica.getNomeMusic() + " - " + musica.getArtistaMusic();
+                return "🎵 " + musica.getNomeMusic() + "/" + musica.getArtistaMusic() + "/" + musica.getGeneroMusic();
             default:
                 return musica.getNomeMusic();
         }

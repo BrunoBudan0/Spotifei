@@ -9,6 +9,7 @@ public class Musica {
     private java.sql.Time duracaoMusic;
     private String descricaoMusic;
     private String artistaMusic;
+    private String generoMusic;
 
     public Musica() {
     }
@@ -56,6 +57,14 @@ public class Musica {
 
     public void setDescricaoMusic(String descricaoMusic) {
         this.descricaoMusic = descricaoMusic;
+    }
+
+    public String getGeneroMusic() {
+        return generoMusic;
+    }
+
+    public void setGeneroMusic(String generoMusic) {
+        this.generoMusic = generoMusic;
     }
     
     

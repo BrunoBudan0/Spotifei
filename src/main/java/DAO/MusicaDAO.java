@@ -18,11 +18,38 @@ public class MusicaDAO {
         this.conn = conn;
     }
     
+    public List<Musica> carregarMusica() throws SQLException {
+    List<Musica> musicas = new ArrayList<>();
+    
+    //Like ajuda na pesquisa parcial
+    String sql = "SELECT * FROM musica";
+    
+    PreparedStatement statement = conn.prepareStatement(sql);
+    ResultSet res = statement.executeQuery();
+    
+    while (res.next()) {
+        Musica musica = new Musica();
+        musica.setIdMusic(res.getInt("id_musica"));
+        musica.setNomeMusic(res.getString("nome_musica"));
+        musica.setDuracaoMusic(res.getTime("duracao_musica"));
+        musica.setArtistaMusic(res.getString("nome_artista"));
+        musica.setDescricaoMusic(res.getString("descricao_musica"));
+        musica.setGeneroMusic(res.getString("genero_musica"));
+
+        musicas.add(musica);
+    }
+    
+    res.close();
+    statement.close();
+    return musicas;
+}
+    
     public List<Musica> buscarMusica(String input) throws SQLException {
     List<Musica> musicas = new ArrayList<>();
     
     //Like ajuda na pesquisa parcial
-    String sql = "SELECT * FROM musica WHERE nome_musica LIKE ? OR nome_artista LIKE ?";
+    String sql = "SELECT * FROM musica WHERE nome_musica LIKE ? OR nome_artista "
+            + "LIKE ? OR genero_musica LIKE ?";
     
     PreparedStatement statement = conn.prepareStatement(sql);
     
@@ -30,6 +57,7 @@ public class MusicaDAO {
     String searchTerm = "%" + input + "%";
     statement.setString(1, searchTerm);
     statement.setString(2, searchTerm);
+    statement.setString(3, searchTerm);
     
     ResultSet res = statement.executeQuery();
     
@@ -40,6 +68,7 @@ public class MusicaDAO {
         musica.setDuracaoMusic(res.getTime("duracao_musica"));
         musica.setArtistaMusic(res.getString("nome_artista"));
         musica.setDescricaoMusic(res.getString("descricao_musica"));
+        musica.setGeneroMusic(res.getString("genero_musica"));
 
         musicas.add(musica);
     }
@@ -69,6 +98,7 @@ public class MusicaDAO {
                 musica.setNomeMusic(res2.getString("nome_musica"));
                 musica.setDuracaoMusic(res2.getTime("duracao_musica"));
                 musica.setArtistaMusic(res2.getString("nome_artista"));
+                musica.setGeneroMusic(res2.getString("genero_musica"));
             }
 
                musicas.add(musica);
@@ -99,6 +129,7 @@ public class MusicaDAO {
                 musica.setNomeMusic(res2.getString("nome_musica"));
                 musica.setDuracaoMusic(res2.getTime("duracao_musica"));
                 musica.setArtistaMusic(res2.getString("nome_artista"));
+                musica.setGeneroMusic(res2.getString("genero_musica"));
             }
 
                musicas.add(musica);

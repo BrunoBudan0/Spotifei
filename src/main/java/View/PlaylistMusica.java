@@ -15,7 +15,6 @@ public class PlaylistMusica extends javax.swing.JFrame {
     private Playlist playlistAtual;
     private List<Musica> musicas;
     private DefaultListModel<String> modeloLista;
-    private ControlMusica c;
     
     public PlaylistMusica() {
         initComponents();
@@ -158,7 +157,6 @@ public class PlaylistMusica extends javax.swing.JFrame {
          c.removerMusicaPlaylistSelecionada(indice); 
     }//GEN-LAST:event_btDescurtirActionPerformed
     
-    // Métodos para gerenciar a lista de músicas
     public void setMusicas(List<Musica> musicas) {
         this.musicas = musicas;
     }
@@ -204,7 +202,7 @@ public class PlaylistMusica extends javax.swing.JFrame {
         return modeloLista;
     }
     
-
+    private ControlMusica c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDescurtir;
     private javax.swing.JButton btVoltar;

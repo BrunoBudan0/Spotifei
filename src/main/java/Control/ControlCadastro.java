@@ -51,7 +51,6 @@ public class ControlCadastro {
         
             Usuario usuario = new Usuario(nome, email, senha);
 
-            // Realiza a conexão com o banco de dados e salva o usuário
             Conexao conexao = new Conexao();
             try {
                 Connection conn = conexao.getConnection();
@@ -62,7 +61,7 @@ public class ControlCadastro {
                     "Aviso", 
                     JOptionPane.INFORMATION_MESSAGE);
 
-                // Opcional: Limpar os campos após o cadastro bem-sucedido
+                //Limpar campos do cadastro
                 limparCampos();
                 return true;
 
@@ -76,7 +75,7 @@ public class ControlCadastro {
         }
     }
     
-    // Método opcional para limpar os campos após cadastro
+    // Método para limpar os campos após cadastro
     private void limparCampos() {
         view.getTxtNome().setText("");
         view.getTxtEmail().setText("");
@@ -86,5 +85,5 @@ public class ControlCadastro {
     private boolean campoVazio(String campo) {
         return campo == null || campo.trim().isEmpty();
     }
-    //Fazer uma validação de email...
+    
 }
