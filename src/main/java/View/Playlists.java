@@ -38,6 +38,7 @@ public class Playlists extends javax.swing.JFrame {
         btVoltar = new javax.swing.JButton();
         btNewPlay = new javax.swing.JButton();
         btExcPlay = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +67,13 @@ public class Playlists extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Editar Playlist");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,14 +83,16 @@ public class Playlists extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
+                .addContainerGap(102, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(107, Short.MAX_VALUE))
+                        .addContainerGap(108, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btNewPlay)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
                         .addComponent(btExcPlay)
                         .addGap(31, 31, 31)
                         .addComponent(btVoltar)
@@ -99,13 +109,14 @@ public class Playlists extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btVoltar)
                     .addComponent(btNewPlay)
-                    .addComponent(btExcPlay))
+                    .addComponent(btExcPlay)
+                    .addComponent(jButton1))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void btNewPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNewPlayActionPerformed
         this.setVisible(false);
         NewPlaylist tl = new NewPlaylist();
@@ -122,6 +133,16 @@ public class Playlists extends javax.swing.JFrame {
         Home tl = new Home();
         tl.setVisible(true);
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int indice = lista.getSelectedIndex();
+        if (c.obterPlaylistSelecionada(indice) != null){
+            c.obterPlaylistSelecionada(indice);
+            this.setVisible(false);
+            PlaylistMusica tl = new PlaylistMusica();
+            tl.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void setPlaylists(List<Playlist> playlists){
         this.playlists = playlists;
@@ -168,6 +189,7 @@ public class Playlists extends javax.swing.JFrame {
     private javax.swing.JButton btExcPlay;
     private javax.swing.JButton btNewPlay;
     private javax.swing.JButton btVoltar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> lista;

@@ -88,5 +88,12 @@ public class MusicaDAO {
         statement.execute();
         conn.close();
     }
+    public void descurtirMusica(int idMusica) throws SQLException {
+        String sql = "DELETE FROM musicascurtidas WHERE id_musica = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, idMusica);
+        statement.execute();
+        conn.close();
+    }
     
 }
