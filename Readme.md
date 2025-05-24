@@ -97,6 +97,8 @@ O login deve ser realizado com o nome de usuário e senha fornecidos no cadastro
 
 Mudar as declarações de conexão se necessario para conectar o banco de dados.
 
+Criar executável clicando em com.mycompany.spotifei e clicando Run File em Main para executar.
+
 Todas as interações com músicas e playlists são persistidas no banco.
 
 A interface gráfica foi projetada para simplicidade e usabilidade.
