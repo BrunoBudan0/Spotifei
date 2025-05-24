@@ -45,6 +45,7 @@ public class NewPlaylist extends javax.swing.JFrame {
         lblNome = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         btCriar = new javax.swing.JButton();
+        btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -66,6 +67,13 @@ public class NewPlaylist extends javax.swing.JFrame {
         btCriar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCriarActionPerformed(evt);
+            }
+        });
+
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
             }
         });
 
@@ -92,7 +100,10 @@ public class NewPlaylist extends javax.swing.JFrame {
                         .addGap(161, 161, 161))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btCriar)
-                        .addGap(148, 148, 148))))
+                        .addGap(148, 148, 148))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btVoltar)
+                        .addGap(160, 160, 160))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +118,9 @@ public class NewPlaylist extends javax.swing.JFrame {
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(btCriar)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(btVoltar)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,10 +138,17 @@ public class NewPlaylist extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btCriarActionPerformed
 
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+         this.setVisible(false);
+         Playlists tl = new Playlists();
+         tl.setVisible(true);
+    }//GEN-LAST:event_btVoltarActionPerformed
+
    
     private ControlPlaylist c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCriar;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JLabel lblCadastro;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblTitulo;

@@ -137,6 +137,8 @@ public class AddPlaylists extends javax.swing.JFrame {
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         this.setVisible(false);
+        PesquisaMusica pesquisaView = new PesquisaMusica();
+        pesquisaView.setVisible(true);
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -45,6 +45,7 @@ DAO\Conexao.class
 View\Home$1.class
 View\Playlists$2.class
 View\CurtidasMusicas.class
+View\NewPlaylist$3.class
 View\PesquisaMusica$1.class
 control\ControlMusica$1.class
 View\Cadastro$1.class
